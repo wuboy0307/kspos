@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">KutyaSuli POS</string>
+    <string name="tx_types_label">Üzemmód</string>
+    <string-array name="txtypes">
+        <item>Lekérdezés</item>
+        <item>Feltöltés (10 pont)</item>
+        <item>Átutalás</item>
+        <item>Regisztráció (Klub)</item>
+        <item>Regisztráció (Őv)</item>
+        <item>Regisztráció (Agility)</item>
+        <item>Regisztráció (Nyom)</item>
+</string-array></resources>
