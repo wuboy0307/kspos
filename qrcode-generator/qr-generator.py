@@ -10,17 +10,23 @@ codesDir = 'codes'
 if not os.path.isdir(codesDir):
     os.makedirs(codesDir)
 
-codeFont = ImageFont.truetype("/usr/share/fonts/truetype/ubuntu-font-family/Ubuntu-B.ttf", 23)
+codeFont = ImageFont.truetype("/usr/share/fonts/truetype/ubuntu-font-family/Ubuntu-B.ttf", 60)
 
-for i in range(100,400):
+bkImg = Image.open("k3-klub-kartya.png")
+
+for i in range(100,399):
     code = str(i)+calc_check_digit(i)
     print "Generating QR code: "+code
     qr = QRCode(2, QRErrorCorrectLevel.H)
     qr.addData(code)
     qr.make()
-    im = qr.makeImage()
-    draw = ImageDraw.Draw(im)
-    draw.text((20,-4), code, fill='black', font=codeFont)
-    im.save(codesDir+'/'+code+'.png')
+    qrImg = qr.makeImage()
+#    qrImg.save(codesDir+'/'+code+'.png')
+
+    img = bkImg.copy()
+    img.paste(qrImg, (87,253))
+    draw = ImageDraw.Draw(img)
+    draw.text((600,380), code, fill='#02508d', font=codeFont)
+    img.save(codesDir+'/k3-klub-kartya-'+code+'.png')
 
 
